@@ -1,7 +1,7 @@
 <div class="test">
 <div class="comment">
-  <p class="comment-content"> <%= comment.content %> </p>
   <p class="message-posted-by"> Posted by <%= comment.user.email %> <%= time_ago_in_words(comment.created_at) %> ago</p>
+  <p class="comment-content"> <%= comment.content %> </p>
 
   <div class="links">
     <% if user_signed_in? %>

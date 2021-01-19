@@ -4,6 +4,15 @@
 <p class="message-posted-by"> <small>Posted by <%= @message.user.email %> <%= time_ago_in_words(@message.created_at) %> ago </small></p>
 
 <p class="message-desc"> <%= @message.description %> </p>
+
+<% if user_signed_in? %>
+  <% if @message.user_id == current_user.id %>
+  <%= link_to "Edit", edit_message_path(@message), class: "btn btn-dark" %>
+  <%= link_to "Delete", message_path(@message), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-dark" %>
+  <% end %>
+<% end %>
+
+
 </div>
 </div>
 <hr class="style-eight">
@@ -14,12 +23,7 @@
 <br>
 <div class="links btn-group">
 <%= link_to "Back", root_path, class: "btn btn-dark"%>
-<% if user_signed_in? %>
-  <% if @message.user_id == current_user.id %>
-  <%= link_to "Edit", edit_message_path(@message), class: "btn btn-dark" %>
-  <%= link_to "Delete", message_path(@message), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-dark" %>
-  <% end %>
-<% end %>
+
 
 </div>
 
