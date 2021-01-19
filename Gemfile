@@ -34,9 +34,12 @@ gem 'devise', '~> 4.7', '>= 4.7.3'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3'
 end
-gem 'pg', group: :production
+
+group :production do
+  gem 'pg', '0.20.0'
+end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
