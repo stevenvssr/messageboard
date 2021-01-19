@@ -1,15 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MessageBoard</title>
+    <title>Message Board</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+ </head>
 
   <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <%= link_to "ChitChat ", root_path, class: "navbar-brand" %>
+          <i class="fas fa-bullhorn"></i>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+           </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <% if user_signed_in? %>
+          <li class="nav-item"> <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link"  %></li>
+          <% else %>
+           <li class="nav-item"> <%= link_to "Log In", new_user_session_path, class: "nav-link"  %></li>
+          <li class="nav-item"> <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %> </li>
+           <% end %>
+           <li class="nav-item">
+             <% if user_signed_in? %>
+        <p> <%= link_to "New Message", new_message_path, class: "nav-link" %> </p>
+        <% end %>
+           </li>
+        </ul>
+
+        </div>
+      </nav>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <div class="container text-center">
     <%= yield %>
+    </div>
   </body>
 </html>

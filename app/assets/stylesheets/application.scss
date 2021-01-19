@@ -1,0 +1,70 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+/* General styles */
+
+body {
+  background-color: #00303f!important;
+  color: white!important;
+}
+
+.test {
+  display: flex;
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px 10px;
+}
+
+.message-card {
+  background-color: #30475e;
+  width: 400px;
+  height: 150px;
+  padding: 15px;
+  border: 2px solid white;
+
+    h2 {
+      color: white;
+    }
+}
+
+.comment-card {
+  background-color: #30475e;
+  color: white;
+  width: 600px;
+  padding: 10px;
+  border: 2px solid white;
+}
+
+.comment {
+  background-color: #30475e;
+  color: white;
+  padding: 5px;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid white;
+  width: 500px;
+}
+
+.message-posted-by {
+  color: #d4e2d4 ;
+}
+
+.btn {
+  margin: 5px;
+}

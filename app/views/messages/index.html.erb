@@ -1,0 +1,17 @@
+<div>
+<% if user_signed_in? %>
+       <%= link_to "New Message", new_message_path, class: "btn btn-success" %>
+        <% end %>
+</div>
+<br>
+<div class="grid">
+<% @messages.each do |message| %>
+
+  <div class="message-card text-center">
+  <h2> <%= message.title %> </h2>
+<%= link_to "View Message", message_path(message), class: "btn btn-dark" %>
+</div>
+<% end %>
+</div>
+
+
